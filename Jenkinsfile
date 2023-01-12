@@ -9,7 +9,7 @@ agent any
 			    stage('Build docker image'){
                              steps{
                                  script{
-                                    sh 'docker build -t badiskhalsi/angularproject .'
+                                    sh 'docker build -t ranimelhaj/angularproject .'
                                  }
                              }
                          }
@@ -21,13 +21,13 @@ agent any
 
                                          steps {
                                           sh 'echo "login Docker ...."'
-                   	sh 'docker login -u badiskhalsi -p badis160698'
+                   	sh 'docker login -u ranimelhaj -p ranim123*'
                                }  }
 		 stage('Docker push') {
 
                  steps {
                       sh 'echo "Docker is pushing ...."'
-                     	sh 'docker push badiskhalsi/angularproject'
+                     	sh 'docker push ranimelhaj/angularproject'
                         }  }
 
                         /*stage('Docker compose') {
@@ -38,7 +38,7 @@ agent any
 
 
         }
-post {
+/*post {
                                                 success {
                                                      mail to: "jbara.aymen@esprit.tn",
                                                      subject: "Badis Khalsi Pipeline Success",
@@ -49,5 +49,5 @@ post {
                          subject: "Pipeline Failure",
                          body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "
                     }
-}
+}*/
       }
