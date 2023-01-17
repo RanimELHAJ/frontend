@@ -1,6 +1,7 @@
 pipeline{
 agent any
 
+
         stages{
 
 
@@ -19,9 +20,10 @@ agent any
 
       stage('Docker login') {
 
-                                         steps {
-                                          sh 'echo "login Docker ...."'
-                   	sh 'docker login -u ranimelhaj -p ranim123*'
+                                   steps {
+                                        sh 'echo "login Docker ...."'                                       
+                    	             
+                                    	sh 'docker login -u ranimelhaj -p ranim123*'
                                }  }
 		 stage('Docker push') {
 
@@ -38,16 +40,17 @@ agent any
 
 
         }
-/*post {
+post {
                                                 success {
-                                                     mail to: "jbara.aymen@esprit.tn",
-                                                     subject: "Badis Khalsi Pipeline Success",
+                                                     mail to: "ranim.elhaj@polytechnicien.tn",
+                                                     subject: "Ranim El Haj Pipeline Success",
                                                      body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
                                                 }
                     failure {
-                        mail to: "jbara.aymen@esprit.tn",
+                        mail to: "ranim.elhaj@polytechnicien.tn",
                          subject: "Pipeline Failure",
                          body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "
                     }
-}*/
-      }
+}
+    // }
+}
